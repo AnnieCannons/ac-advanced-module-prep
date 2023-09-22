@@ -16,12 +16,14 @@ Here are resources you can use:
 2. [Git and Github Learning Resources - GitHub](https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources)
 3. [Git Exercises - Coderefinery](https://coderefinery.github.io/git-intro/exercises/)
 4. [The Git and Github Bootcamp - Udemy](https://anniecannons.udemy.com/course/git-and-github-bootcamp/)
+3. [Git exercises](https://coderefinery.github.io/git-intro/exercises/)
+4. [Github Course](https://anniecannons.udemy.com/course/git-and-github-bootcamp/)
 
 #### HTML
 
 Here are resources you can use:
 
-1. [Responsive Web Design Cours - freeCodeCamp](https://www.freecodecamp.org/learn/2022/responsive-web-design/)
+1. [Responsive Web Design Course - freeCodeCamp](https://www.freecodecamp.org/learn/2022/responsive-web-design/)
 2. [Structure of an HTML page - YouTube](https://www.youtube.com/watch?v=90kC1YLNF3U&feature=youtu.be)
 3. [AnnieCannons HTML Slides](https://www.canva.com/design/DAFloBTAiWE/VvNgsHnApTDW_G4oqh4LJQ/edit)
 4. [HTML Block vs Inline Elements - YouTube](https://www.youtube.com/watch?v=XHjoohto2-w)
