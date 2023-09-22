@@ -19,11 +19,27 @@ Thank you for your interest in joining our Advanced Classes! Here are some of th
 1. You should have full access to Udemy and Frontend Masters. [Click here](https://anniecannons.udemy.com)
 2. Please reach out to the Student Success Coordinator, if you have any questions.
 
-## Using this Repo
+## Resources You'll Need
 
-1. Resources Folder
+Besides the info above on the process of returning to AnnieCannons, we have two AC resources you will need as you prepare:
+
+#### Our Advanced Module Prep Repository
+
+Carefully read our [Advanced Module Prep materials](https://github.com/AnnieCannons/advanced-module-prep-resources), making sure to:
 
 - Review the learningObjectives.md file for all of the topics that you should be familiar with before interviewing
 - Utilize the resources in the resources.md files, if you need refreshers on the topics.
 
-2. Project Folder
+#### Guidelines For Your Project
+
+The project you'll make is carefully outlined in this [assignment repository](https://github.com/AnnieCannons/weather-app-project). There you'll find:
+
+- a **description** of the project and our **goal** in giving it to you
+- **Learning Objectives** for the project
+- a complete **rubric** to lay out for you what the project's **requirements** are and help you **assess your progress through it**
+- info on how to **submit your assignment**
+- some notes to help you **get started**, what **tools** we recommend, and any other guidance that might help you.
+
+## Please Reach Out With Any Questions
+
+We'd love to answer and clarify anything you're unsure of, and we look forward to seeing you more often soon!
