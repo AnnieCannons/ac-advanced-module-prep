@@ -32,7 +32,9 @@ Carefully read our [Advanced Module Prep materials](https://github.com/AnnieCann
 
 #### Guidelines For Your Project
 
-The project you'll make is carefully outlined in this [assignment repository](https://github.com/AnnieCannons/weather-app-project). There you'll find:
+The project you'll make is carefully outlined in this [assignment repository](https://github.com/AnnieCannons/weather-app-project), which is a final project for Intro to Programming, the current Advanced Modules pre-course.
+
+The assignment repository contains:
 
 - a **description** of the project and our **goal** in giving it to you
 - **Learning Objectives** for the project
