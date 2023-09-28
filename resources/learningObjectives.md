@@ -41,7 +41,7 @@ Students will be able to:
 2. Explain the CSS syntax of selectors, properties, and values.
 3. Write CSS selectors, properties, and values.
 4. Know how to look up CSS selectors, properties, and values.
-5. Add CSS to an HTML document using the `<link>` tag.
+5. Add CSS to an HTML document using the link tag.
 6. Explain the box model and how it is used in CSS.
 7. Use the Chrome DevTools to inspect and edit CSS.
 8. Lay out a web page using CSS Flexbox.
