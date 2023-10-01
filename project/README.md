@@ -1,4 +1,4 @@
-# Weathery - A Project For AnnieCannons' Returning Students
+<!-- # Weathery - A Project For AnnieCannons' Returning Students
 
 Weathery is a project for returning students to AnnieCannons. The finished app allows users to search for locations and get the matching weather forecasts.
 
@@ -84,4 +84,4 @@ We also suggest using Visual Studio Code's Live Server extension to render your 
 
 To submit your work, you will submit a Pull Request on GitHub from your fork to the original repo. If you're unsure how to do so, you can refer to [our guide to submitting assignments via Pull Request](https://github.com/AnnieCannons/intro-to-programming-curriculum/blob/main/git/resources/github-pull-request-guide.md)
 
-Please email the Student Success Coordinator to schedule your interview once you’re done.
+Please email the Student Success Coordinator to schedule your interview once you’re done. -->

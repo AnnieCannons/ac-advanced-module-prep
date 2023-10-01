@@ -10,24 +10,16 @@
     padding: 0;
 }
 
-.search-container {
-    grid-area: 1 / 1 / 2 / 6;
-    display: flex;
-}
+/* search */
 
-.search {
-    width: 100%;
+.search-bar-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 1rem;
 }
 
-.search h1 {
-    margin: 0;
-}
-
-.search input {
+.search-input {
     border: 0;
     outline: 0;
     color: #555;
@@ -39,31 +31,133 @@
     font-size: 18px;
     margin-left: 10%;
     border: 1px solid black;
+    width: 90%;
 
 }
 
-.search button {
+.search-button {
     border: 01px solid black;
     outline: 0;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     background: white;
+    margin-right: 5%;
 }
 
-img.search-button {
+.search-img {
     width: 20px;
+    padding: 5%;
 }
 
-.current-weather {
-    grid-area: 2 / 1 / 4 / 4;
-    display: flex;
+/* error */
+.error {
+    display: none;
 }
 
-.current-container {
+
+/* toggle */
+/* The switch - the box around the slider */
+
+&:before {
+    content: "F°";
+}
+
+&::after {
+    content: "C°";
+}
+
+.toggle {
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* Toggle slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "C°";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 24px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  /* current card */
+
+  .label {
+    text-align: center;
+    padding-bottom: 10%;
+  }
+
+
+.current-weather-container {
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
+}
+
+.current-weather-container col {
+    width: 50%;
+}
+
+.weather-location-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .current-summary {
@@ -103,8 +197,15 @@ img.search-button {
     display: block;
 }
 
+/* details section */
+
+.details {
+    display: flex;
+    flex-direction: row;
+}
+
 .weather-icon {
-    width: 170px;
+    width: 200px;
     margin-top: 30px;
 }
 
@@ -173,17 +274,6 @@ img.search-button {
     padding-top: 3%;
 }
 
-.col img {
-    width: 30px;
-    margin-right: 10px;
-}
-
-.humidity,
-.wind {
-    font-size: 22px;
-    margin-top: -6px;
-}
-
 div.search {
     display: flex;
     padding: 2%;
@@ -191,6 +281,27 @@ div.search {
 
 .conditional-card {
     width:50%;
+}
+
+.forecast-container {
+    display: flex;
+    flex-direction: row;;
+}
+
+img.max-min-weather-icon {
+    width: 40px;
+    margin: 10%;
+}
+
+.arrow_img,
+.arrow-icon {
+    width: 40px;
+    margin-right: 5%;
+}
+
+.rain_img {
+    width: 70px;
+    margin-right: 5%;
 }
 
 .inside-container {
@@ -203,8 +314,26 @@ div.search {
     display: flex;
 }
 
-.div7 {
-    grid-area: 6 / 1 / 7 / 6;
-    background-color: lightskyblue;
-    border: 1px solid black;
+.card3 {
+    margin-right: 10%;
+}
+
+.todays-hot-conditions {
+    font-size: 48px;
+    color: red;
+    text-align: left;
+}
+
+.todays-moderate-conditions {
+    font-size: 48px;
+    color: yellow;
+    text-align: left;
+    display: none;
+}
+
+.todays-summary_cold {
+    font-size: 48px;
+    color: blue;
+    text-align: left;
+    display: none;
 }

@@ -1,191 +1,78 @@
 
-const searchElement =
-    `<div class="search">
-    <h1>Local Weather report</h1>
-    <input type="text" value="oakland" class="search-input" placeholder="enter city name" id="search-input" spellcheck="false">
-    <button type="submit"><img class="search-button" src="./images/search.png" id="search-button" alt="search-bar"></button>
-</div>`
-
-function getCondition(temp) {
-
-    if (temp < 45) {
-        return "It's Cold Today!"
-    } else if (temp < 75) {
-        return "Its Moderate Today!"
-    } else {
-        return "It's Hot Today!"
-    }
-}
-
-
-// function getTempClass(temp) {
-//     let tempTarget = document.getElementById("card-container");
-//     // Adding class to div element
-//     if(temp < 45) {
-//     tempTarget.classList.add("cold-background");
-//     } else if(temp < 75) {
-//         tempTarget.classList.add("moderate-background");
-//     }else tempTarget.classList.add("hot-baackground");
-// }
-
-
-function generateCard({ data, location, day, label }) {
-
-    console.log(location)
-
-
-    const { temp_f, avgtemp_f, condition, daily_chance_of_rain, maxtemp_f, mintemp_f } = day
-    const { name, region, country } = location
-
-
-
-
-    return `<div id="card-container" class="card weather">
-    <p class="temp-heading">${label}</p>
-    <img class="weather-icon" src="${condition.icon}" alt="weather-icon">
-    <h1 class="temp">
-    ${temp_f || avgtemp_f}°F
-    </h1>
-    <h2 class="city">${name}, <span class="state">${region}</span></h2>
-    <h3 class="country"> ${country}</h3>
-    <div class="details-container">
-        <div class="col">
-            <img src="./images/percipitation.png" alt="rain-icon">
-            <div>
-                <p class="rain">${daily_chance_of_rain}%</p>
-                <p>Chance of Rain</p>
-            </div>
-        </div>
-        <div class="col">
-            <img src="./images/high_low.png" alt="up-down-arrows-icon">
-            <div>
-                <p class="min_max">${mintemp_f}°F</p>
-                <p>Low Temp</p>
-            </div>
-        </div>
-        <div class="col">
-            <img src="./images/high_low.png" alt="up-down-arrows-icon">
-            <div>
-                <p class="min_max">${maxtemp_f}°F</p>
-                <p>Hi Temp</p>
-            </div>
-        </div>
-    </div>
-</div>`
-}
-
-
-document.querySelector('.search-container').innerHTML = searchElement
-
-const apiKey = 'aabb6cd27ba044f882b210207232509';
+const apiKey = 'f0353b213ac242189e4115006230110';
+const apiUrl = 'http://api.weatherapi.com/v1/forecast.json?key=f0353b213ac242189e4115006230110&q=${input}&days=5&aqi=no&alerts=no';
 
 const searchBox = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-button');
+const weatherIcon = document.querySelector('.weather-icon');
 const insideContainer = document.getElementById('days');
-const currentDay = document.getElementById('current')
+const currentDay = document.getElementById('current');
 
 async function checkWeather(city) {
-    const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=aabb6cd27ba044f882b210207232509&q=${city}&days=4&aqi=no&alerts=no`;
-    const response = await fetch(apiUrl + city + `appid=${apiKey}`);
+  const url = `${apiUrl}?key=${apiKey}&q=${city}&days=5&aqi=no&alerts=no`;
+  const response = await fetch(url);
+  const data = await response.json();
 
-    let data = await response.json();
-    console.log(data)
+  // Display current weather information
+  document.querySelector('.city').innerHTML = data.location.name;
+  document.querySelector('.state').innerHTML = data.location.region;
+  document.querySelector('.country').innerHTML = data.location.country;
+  document.querySelector('.forecast-weather-icon').src = data.current.condition.icon;
+  document.querySelector('.temp_f').innerHTML = data.current.temp_f;
+  document.querySelector('.temp_c').innerHTML = data.current.temp_c;
+  document.querySelector('.current-insert-rain').innerHTML = data.current.precip_mm;
 
-    const currentDayCard = generateCard({
-        label: 'Today',
-        location: data.location,
-        day: data.current,
-        humidity: data.current,
-        wind: data.day,
-        rain: data.day,
-        maxtemp_f: data.day,
-        mintemp_f: data.day,
-    })
+  // Display forecast for each day
+  insideContainer.innerHTML = '';
+  data.forecast.forecastday.forEach((day) => {
+    const card = generateCard(day);
+    insideContainer.innerHTML += card;
+  });
 
-    currentDay.innerHTML = currentDayCard
+  // Calculate and display hottest/coldest day
+  const temps = data.forecast.forecastday.map((day) => day.day.avgtemp_f);
+  const lowestIndex = temps.indexOf(Math.min(...temps));
+  const highestIndex = temps.indexOf(Math.max(...temps));
+  const hottestDay = data.forecast.forecastday[highestIndex].date;
+  const coldestDay = data.forecast.forecastday[lowestIndex].date;
 
-    // function getTempClass(temp) {
-    //     let tempTarget = querySelector("#card-container");
-    //     // Adding class to div element
-    //     if(temp < 45) {
-    //     classList.add("cold-background");
-    //     } else if(temp < 75) {
-    //     classList.add("moderate-background");
-    //     }else classList.add("hot-baackground");
-    // }
-
-    const conditionCard = document.createElement('div')
-    conditionCard.innerText = getCondition(data.current.temp_f)
-    conditionCard.classList.add('conditional-card')
-    document.querySelector('conditional-card')
-
-    currentDay.appendChild(conditionCard)
-
-    const temps = []
-    temps.push(data.forecast.forecastday[0].day.avgtemp_f)
-
-    for (let i = 1; i < data.forecast.forecastday.length; i++) {
-        const day = data.forecast.forecastday[i]
-        temps.push(day.day.avgtemp_f)
-
-
-        const card = generateCard({
-            label: day.date,
-            location: data.location,
-            day: day.day,
-            humidity: day.day,
-            wind: data.current,
-            rain: data.day,
-            maxtemp_f: data.day,
-            mintemp_f: data.day,
-           // function: getTempClass(temp),
-
-        })
-
-
-        const div = document.createElement('div')
-        div.innerHTML = card
-        insideContainer.appendChild(div)
+  if (temps.length > 0) {
+    let type = 'hot';
+    if (temps.reduce((a, b) => a + b) / temps.length < 75) {
+      type = 'cold';
     }
 
-    let lowestIndex = 0;
-    let highestIndex = 0;
-    let sum = 0
-
-    for (let i = 0; i < temps.length; i++) {
-        sum += temps[i]
-
-        if (temps[i] < temps[lowestIndex]) {
-            lowestIndex = i;
-        }
-        if (temps[i] > temps[highestIndex]) {
-            highestIndex = i;
-        }
-    }
-
-    const avgTemps = sum / temps.length
-
-    let type = 'hot'
-
-    if (avgTemps < 75) {
-        type = 'cold'
-    }
-
-
-    const dayIndex = type === 'hot' ? highestIndex : lowestIndex;
-    const day = data.forecast.forecastday[dayIndex];
     const info = document.getElementById('hottest');
-
-    if (type == 'hot') {
-        info.innerText = 'The hottest day this week is ' + day.date;
-    } else  {
-        info.innerText = 'The coldest day this week is ' + day.date;
+    if (type === 'hot') {
+      info.innerText = 'The hottest day this week is ' + hottestDay;
+    } else {
+      info.innerText = 'The coldest day this week is ' + coldestDay;
     }
+  }
 }
 
+function generateCard(day) {
+  const card = `
+    <div class="card">
+      <h2>${getDayName(day.date)}</h2>
+      <img src="${day.day.condition.icon}" alt="Weather Icon">
+      <p>Max Temp: ${day.day.maxtemp_f}°F / ${day.day.maxtemp_c}°C</p>
+      <p>Min Temp: ${day.day.mintemp_f}°F / ${day.day.mintemp_c}°C</p>
+      <p>Rain: ${day.day.daily_chance_of_rain}%</p>
+    </div>
+  `;
+  return card;
+}
+
+function getDayName(dateStr) {
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const date = new Date(dateStr);
+  const dayName = days[date.getDay()];
+  return dayName;
+}
 
 if (searchBtn) {
-    searchBtn.addEventListener("click", () => {
-        checkWeather(searchBox.value);
-    })
+  searchBtn.addEventListener('click', () => {
+    checkWeather(searchBox.value);
+  });
 }
