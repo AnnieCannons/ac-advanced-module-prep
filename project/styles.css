@@ -180,6 +180,25 @@
     width: 100%;
 }
 
+h1.temp_f {
+    display: block;
+}
+
+h1.temp_c {
+    display: none;
+}
+
+p.hi-low_f {
+    display: block;
+}
+
+p.hi-low_c {
+    display: none;
+}
+
+
+/* summary */
+
 .hotBackground {
     background: linear-gradient(135deg, #980808, #ed3b71);
 }
@@ -274,6 +293,14 @@
     padding-top: 3%;
 }
 
+.forecast-weather-icon{
+    width: 30px;
+}
+
+.umbrella {
+    width: 50px;
+}
+
 div.search {
     display: flex;
     padding: 2%;
@@ -289,13 +316,13 @@ div.search {
 }
 
 img.max-min-weather-icon {
-    width: 40px;
+    width: 30px;
     margin: 10%;
 }
 
 .arrow_img,
 .arrow-icon {
-    width: 40px;
+    width: 30px;
     margin-right: 5%;
 }
 
@@ -322,6 +349,7 @@ img.max-min-weather-icon {
     font-size: 48px;
     color: red;
     text-align: left;
+    display: none
 }
 
 .todays-moderate-conditions {

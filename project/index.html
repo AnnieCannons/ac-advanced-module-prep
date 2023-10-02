@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles.css">
-    <script src="/script.js"></script>
     <title>trigger_AnnieCannons Application Project</title>
     </head>
 
@@ -32,22 +31,22 @@
                 </div>
             </div>
             <div class="row current-weather-container">
-                <div class="col current-card">
+                <div class="col" id="current">
                     <div class="card weather">
                         <div class="label-container">
                             <h2 class="label">Weekday</h2>
                         </div>
                         <div class="weather-location-details">
                             <img class="weather-icon" src="./images/rain.png" alt="rain-icon">
-                            <h1 class="temp"><span id="current-insert-temp_f"></span>°F</h1>
-                            <h1 class="temp"><span id="current-insert-temp_c"></span>°C</h1>
+                            <h1 class="temp_f"><span id="current-insert-temp_f"></span>°F</h1>
+                            <h1 class="temp_c"><span id="current-insert-temp_c"></span>°C</h1>
                             <h2 class="city">New York, <span class="state">NY</span></h2>
                             <h3 class="country">USA</h3>
                         </div>
                         <div class="row details">
                             <div class="col inner-details">
                                 <div>
-                                    <img id="rain" class="rain_img forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
+                                    <img id="rain" class="umbrella forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
                                 </div>
                                 <div>
                                     <p class="rain-percentage"><span id="insert-current-rain"></span>%</p>
@@ -80,20 +79,19 @@
                 <div class="col current-summary">
                     <div class="todays-summary_hot">
                         <p class="todays-hot-conditions">It's Hot Today!</p>
-                        <p class="hottest"></p>
                     </div>
                     <div class="todays-summary_moderate">
                         <p class="todays-moderate-conditions">Its Moderate Today</p>
-                        <p class="hottest"></p>
                     </div>
                     <div class="todays-summary_cold">
-                        <p class="todays-cold-conditions">It's Cold Today!</p>
-                        <p class="hottest">Tuesday is the hottest day this week.</p>
+                        <p id="todays-cold-conditions">It's Cold Today!</p>
+                        <p id="coldest">Tuesday is the hottest day this week.</p>
                     </div>
+                    <p id="hottest"></p>
                 </div>
             </div>
 
-            <div class="row forecast-container">
+            <div id="days" class="row forecast-container">
                 <div class="col class=forecast_day1">
                     <div class="card">
                         <div class="weather">
@@ -103,14 +101,15 @@
                             </div>
                             <div class="weather-location">
                                 <p><img id="day1-weather-icon" class="weather-icon" src="./images/rain.png" alt="rain-icon"></p>
-                                <h1 id="day1-temp" class="temp"><span id="day1-insert-temp"></span>°F</h1>
-                                <h2 id="day1-city" class="city">New York, <span id="day1-state" class="state"></span></h2>
+                                <h1 id="day1-temp_f" class="temp_f"><span id="day1-insert-temp_f"></span>°F</h1>
+                                <h1 id="day1-temp_c" class="temp_c"><span id="day1-insert-temp_c"></span>°F</h1>
+                                <h2 id="day1-city" class="city">New York, <span id="day1-state" class="state">NY</span></h2>
                                 <h3 id="day1-country" class="country">USA</h3>
                             </div>
                             <div class="row details">
                                 <div class="col inner-details">
                                     <div>
-                                        <img id="day1-forecast-icon" class="rain_img forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
+                                        <img id="day1-forecast-icon" class="umbrella forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
                                     </div>
                                     <div>
                                         <p id="day1-rain" class="rain-percentage"><span id="day1-insert-rain"></span>%</p>
@@ -119,7 +118,7 @@
                                 </div>
                                 <div class="col inner-details">
                                     <div>
-                                        <img id="day1-arrows-icon" class="arrow_img forecast-weather-icon" src="./images/high_low.png" alt="hi-icon">
+                                        <img id="day1-arrows-icon" class="forecast-weather-icon" src="./images/high_low.png" alt="hi-icon">
                                     </div>
                                     <div class>
                                         <p id="day1-max_f" class="hi-low_f"><span id="day1-insert-max_f"></span>°F</p>
@@ -129,7 +128,7 @@
                                 </div>
                                 <div class="col inner-details">
                                     <div>
-                                        <img class="arrow_icon forecast-weather-icon" src="./images/high_low.png" alt="low-icon">
+                                        <img class="forecast-weather-icon" src="./images/high_low.png" alt="low-icon">
                                     </div>
                                     <div>
                                         <p id="day1-min_f" class="hi-low_f"><span id="day1-insert-min_f"></span>°F</p>
@@ -156,14 +155,14 @@
                             </div>
                             <div class="row details">
                                 <div class="col">
-                                    <img id="day2-forecast-icon" class="rain_img forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
+                                    <img id="day2-forecast-icon" class="umbrella forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
                                     <div class="inner-details">
                                         <p id="day2-rain" class="rain-percentage"><span id="day2-insert-rain"></span>%</p>
                                         <p id="day2-rain-chance" class="rain-text">Chance Of Rain</p>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <img id="day2-arrows-icon" class="arrow_img forecast-weather-icon" src="./images/high_low.png" alt="hi-icon">
+                                    <img id="day2-arrows-icon" class="forecast-weather-icon" src="./images/high_low.png" alt="hi-icon">
                                     <div class="inner-details">
                                         <p id="day2-max_f" class="hi-low_f"><span id="day2-insert-max_f"></span>°F</p>
                                         <p id="day2-max_c" class="hi-low_c"><span id="day2-insert-max_c"></span>°C</p>
@@ -171,7 +170,7 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <img id="day2-arrows-icon2" class="arrow_img forecast-weather-icon" src="./images/high_low.png" alt="low-icon">
+                                    <img id="day2-arrows-icon2" class="forecast-weather-icon" src="./images/high_low.png" alt="low-icon">
                                     <div class="inner-details">
                                         <p id="day2-min_f" class="hi-low_f"><span id="day2-insert-min_f"></span>°F</p>
                                         <p id="day2-min_c" class="hi-low_c"><span id="day2-insert-min_c"></span>°C</p>
@@ -197,14 +196,14 @@
                             </div>
                             <div class="row details">
                                 <div class="col">
-                                    <img id="day3-forecast-icon" class="rain_img forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
+                                    <img id="day3-forecast-icon" class="umbrella forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
                                     <div class="inner-details">
                                         <p id="day3-rain" class="rain-percentage"><span id="day3-insert-rain"></span>%</p>
                                         <p id="day3-rain-chance" class="rain-text">Chance Of Rain</p>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <img class="rain_img forecast-weather-icon" src="./images/high_low.png" alt="hi-icon">
+                                    <img class="forecast-weather-icon" src="./images/high_low.png" alt="hi-icon">
                                     <div class="inner-details">
                                         <p id="day3-max_f" class="hi-low_f"><span id="day3-insert-max_f"></span>°F</p>
                                         <p id="day3-max_c" class="hi-low_c"><span id="day3-insert-max_c"></span>°C</p>
@@ -212,7 +211,7 @@
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <img id="day3-arrows-icon" class="arrow_img forecast-weather-icon" src="./images/high_low.png" alt="low-icon">
+                                    <img id="day3-arrows-icon" class="forecast-weather-icon" src="./images/high_low.png" alt="low-icon">
                                     <div class="inner-details">
                                         <p id="day3-min_f" class="hi-low_f"><span id="day3-insert-min_f"></span>°F</p>
                                         <p id="day3-min_c" class="hi-low_c"><span id="day3-insert-min"></span>°C</p>
@@ -226,7 +225,6 @@
             </div>
 
         </div>
-    <footer><a href="https://www.weatherapi.com/" title="Free Weather API"><img src="//cdn.weatherapi.com/v4/images/weatherapi_logo.png" alt="Weather data by WeatherAPI.com"></a></footer>
         <script src="/script.js"></script>
     </body>
 
