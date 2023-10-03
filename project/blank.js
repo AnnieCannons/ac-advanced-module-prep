@@ -36,7 +36,7 @@
 //         "vis_miles": 6.0,
 //         "uv": 5.0,
 //         "gust_mph": 13.1,
-//         "gust_kph": 21.1
+//         "gust_kph": 21.d1
 //     },
 //     "forecast": {
 //         "forecastday": [

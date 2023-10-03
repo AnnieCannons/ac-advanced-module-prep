@@ -199,15 +199,15 @@ p.hi-low_c {
 
 /* summary */
 
-.hotBackground {
+.hotTemperature {
     background: linear-gradient(135deg, #980808, #ed3b71);
 }
 
-.moderateBackground {
+.moderateTemperature {
     background: linear-gradient(135deg,#E8ee3b, #d87825);
 }
 
-.coldBackground {
+.coldTempature {
     background: linear-gradient(135deg, #00feba, #5b548a);
 }
 
@@ -230,6 +230,16 @@ p.hi-low_c {
 
 .temp-heading {
     font-size: 26px;
+}
+
+#forecast-temp_f {
+    font-size: 20px;
+}
+
+#forecast-temp_c
+
+.forecast_city {
+    font-size: 18px;
 }
 
 .weather h1 {
@@ -281,7 +291,11 @@ p.hi-low_c {
 }
 
 .up-arrow {
-    width: 10%;
+    width: 8%;
+}
+
+p.info {
+    font-size: 48px;
 }
 
 .col {
@@ -294,11 +308,15 @@ p.hi-low_c {
 }
 
 .forecast-weather-icon{
-    width: 30px;
+    width: 20px;
 }
 
 .umbrella {
-    width: 50px;
+    width: 30px;
+}
+
+.inner-details {
+    margin: 3%;
 }
 
 div.search {
@@ -345,21 +363,21 @@ img.max-min-weather-icon {
     margin-right: 10%;
 }
 
-.todays-hot-conditions {
+#hottest {
     font-size: 48px;
     color: red;
     text-align: left;
-    display: none
+
 }
 
-.todays-moderate-conditions {
+#moderate {
     font-size: 48px;
     color: yellow;
     text-align: left;
     display: none;
 }
 
-.todays-summary_cold {
+#coldest {
     font-size: 48px;
     color: blue;
     text-align: left;

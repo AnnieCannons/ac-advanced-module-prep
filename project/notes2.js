@@ -529,4 +529,266 @@
 
 
 
+//4:25am
 
+// document.addEventListener('DOMContentLoaded', () => {
+//     const apiKey = '5e0eea3c80634f73ab322334230210';
+//     const apiUrl = 'https://api.weatherapi.com/v1/forecast.json?key=5e0eea3c80634f73ab322334230210&q=';
+
+//     const searchBox = document.querySelector('.search-input');
+//     const searchBtn = document.querySelector('.search-button');
+//     const weatherIcon = document.querySelector('.weather-icon');
+//     const insideContainer = document.getElementById('days');
+//     const currentDay = document.getElementById('current');
+//     const mainContainer = document.getElementById('current-card');
+//     const forecastDay = document.getElementById('forecast-card');
+
+//     async function checkWeather(city) {
+//       const response = await fetch(`${apiUrl}${city}&days=4&aqi=no&alerts=no`);
+
+//       if (response.status === 400) {
+//         document.querySelector(".error").style.display = "block";
+//         document.querySelector(".weather").style.display = "none";
+//       } else {
+//         const data = await response.json();
+//         console.log(data);
+
+//         const currentDayCard = generateCurrentCard(data.current, 'Today', data.location);
+//         document.querySelector('.current-weather-container').innerHTML = currentDayCard;
+
+//         data.forecast.forecastday.forEach(day => {
+//           const forecastDayCard = generateForecastCard(day.day, getDayName(day.date), data.location);
+//           document.querySelector('.forecast-day-card').innerHTML = forecastDayCard
+//         });
+
+//         const temps = data.forecast.forecastday.map(day => day.day.avgtemp_f);
+//         const lowestIndex = temps.indexOf(Math.min(...temps));
+//         const highestIndex = temps.indexOf(Math.max(...temps));
+//         const hottestDay = data.forecast.forecastday[highestIndex].date;
+//         const coldestDay = data.forecast.forecastday[lowestIndex].date;
+
+//         const info = document.getElementById('current-summary');
+//         if (temps.length > 0) {
+//           const averageTemp = temps.reduce((a, b) => a + b) / temps.length;
+//           if (averageTemp < 75) {
+//             info.innerText = `The coldest day this week is ${coldestDay}`;
+//           } else {
+//             info.innerText = `The hottest day this week is ${hottestDay}`;
+//           }
+//         } else {
+//           info.innerText = "";
+//         }
+//       }
+//     }
+
+//     function generateCurrentCard(day, label, location) {
+//       return `
+//         <div class="card weather">
+//             <div class="label-container">
+//                 <h2 class="label">${label}</h2>
+//             </div>
+//             <div class="weather-location-details">
+//                 <img class="weather-icon" src="${day.condition.icon}" alt="rain-icon">
+//                 <h1 class="temp_f">${day.avgtemp_f}°F</h1>
+//                 <h1 class="temp_c">${day.avgtemp_c}°C</h1>
+//                 <h2 class="city">${location.name}, <span class="state">${location.region}</span></h2>
+//                 <h3 class="country">${location.country}</h3>
+//             </div>
+//             <div class="row details">
+//                 <div class="col inner-details">
+//                     <div>
+//                         <img id="rain" class="umbrella forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
+//                     </div>
+//                     <div>
+//                         <p class="rain-percentage">${day.daily_chance_of_rain}%</p>
+//                         <p class="rain-text">Chance Of Rain</p>
+//                     </div>
+//                 </div>
+//                 <div class="col inner-details">
+//                     <div>
+//                         <img id="max" class="max-min-weather-icon" src="./images/high_low.png" alt="hi-icon">
+//                     </div>
+//                      <div>
+//                         <p id="max_f" class="hi-low_f">${day.maxtemp_f}°F</p>
+//                         <p id="max_c" class="hi-low_c">${day.maxtemp_c}°C</p>
+//                         <p class="icons-label">High: </p>
+//                     </div>
+//                 </div>
+//                 <div class="col inner-details">
+//                     <div>
+//                         <img id="low" class="max-min-weather-icon" src="./images/high_low.png" alt="low-icon">
+//                     </div>
+//                     <div>
+//                         <p id="min_f" class="hi-low_f">${day.mintemp_f}°F</p>
+//                         <p id="min_c" class="hi-low_f">${day.mintemp_c}°C</p>
+//                         <p class="icons-label">Low:</p>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//       `;
+//     }
+
+//     function generateForecastCard(day, label, location) {
+//         return `
+//           <div class="card weather">
+//               <div class="label-container">
+//                   <h2 class="label">${label}</h2>
+//               </div>
+//               <div class="weather-location-details">
+//                   <img class="weather-icon" src="${day.condition.icon}" alt="rain-icon">
+//                   <h1 class="temp_f">${day.temp_f}°F</h1>
+//                   <h1 class="temp_c">${day.temp_c}°C</h1>
+//                   <h2 class="city">${location.name}, <span class="state">${location.region}</span></h2>
+//                   <h3 class="country">${location.country}</h3>
+//               </div>
+//               <div class="row details">
+//                   <div class="col inner-details">
+//                       <div>
+//                           <img class="umbrella forecast-weather-icon" src="./images/umbrella_rain.png" alt="rain-icon">
+//                       </div>
+//                       <div>
+//                           <p class="rain-percentage">${day.daily_chance_of_rain}%</p>
+//                           <p class="rain-text">Chance Of Rain</p>
+//                       </div>
+//                   </div>
+//                   <div class="col inner-details">
+//                       <div>
+//                           <img class="max-min-weather-icon" src="./images/high_low.png" alt="hi-icon">
+//                       </div>
+//                        <div>
+//                           <p id="forecast-max_f" class="hi-low_f">${day.maxtemp_f}°F</p>
+//                           <p id="forecast-max_c" class="hi-low_c">${day.maxtemp_c}°C</p>
+//                           <p class="icons-label">High: </p>
+//                       </div>
+//                   </div>
+//                   <div class="col inner-details">
+//                       <div>
+//                           <img class="max-min-weather-icon" src="./images/high_low.png" alt="low-icon">
+//                       </div>
+//                       <div>
+//                           <p id="forecast-min_f" class="hi-low_f">${day.mintemp_f}°F</p>
+//                           <p id="forecast-min_c" class="hi-low_f">${day.mintemp_c}°C</p>
+//                           <p class="icons-label">Low:</p>
+//                       </div>
+//                   </div>
+//               </div>
+//           </div>
+//         `;
+//     }
+
+//     function getDayName(dateStr) {
+//       const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+//       const date = new Date(dateStr);
+//       const dayName = days[date.getDay()];
+//       return dayName;
+//     }
+
+//     if (searchBtn) {
+//       searchBtn.addEventListener('click', () => {
+//         checkWeather(searchBox.value);
+//       });
+//     }
+//     })
+
+//4:40am
+
+
+// Function to fetch weather data from the API and update the HTML
+// async function checkWeather(city) {
+//     try {
+//       const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=YOUR_API_KEY&q=${city}&days=7`);
+//       const data = await response.json();
+
+//       if (response.status === 200) {
+//         updateCurrentWeather(data.current);
+//         updateForecast(data.forecast);
+//       } else {
+//         displayErrorMessage(data.error.message);
+//       }
+//     } catch (error) {
+//       displayErrorMessage('An error occurred while fetching the weather data.');
+//     }
+//   }
+
+  // Function to update the HTML with the current weather data
+//   function updateCurrentWeather(current) {
+//     const currentCard = generateCurrentCard(current);
+//     document.getElementById('currentWeather').innerHTML = currentCard;
+//   }
+
+  // Function to update the HTML with the forecast weather data
+//   function updateForecast(forecast) {
+//     let forecastCards = '';
+//     forecast.forecastday.forEach(day => {
+//       forecastCards += generateForecastCard(day);
+//     });
+//     document.getElementById('forecastWeather').innerHTML = forecastCards;
+
+//     const hottestDay = getHottestDay(forecast.forecastday);
+//     const coldestDay = getColdestDay(forecast.forecastday);
+
+//     document.getElementById('hottestDay').innerHTML = hottestDay.date;
+//     document.getElementById('coldestDay').innerHTML = coldestDay.date;
+//   }
+
+  // Function to generate the HTML card for the current weather
+//   function generateCurrentCard(current) {
+//     const condition = current.condition;
+//     const card = `
+//       <div class="card">
+//         <h2>${current.temp_c}°C</h2>
+//         <img src="${condition.icon}" alt="${condition.text}">
+//         <p>${condition.text}</p>
+//       </div>
+//     `;
+//     return card;
+//   }
+
+  // Function to generate the HTML card for a forecast day
+//   function generateForecastCard(day) {
+//     const condition = day.day.condition;
+//     const card = `
+//       <div class="card">
+//         <h2>${day.day.avgtemp_c}°C</h2>
+//         <img src="${condition.icon}" alt="${condition.text}">
+//         <p>${condition.text}</p>
+//         <p>${getDayName(day.date)}</p>
+//       </div>
+//     `;
+//     return card;
+//   }
+
+  // Function to get the day name from a date string
+//   function getDayName(dateString) {
+//     const date = new Date(dateString);
+//     const options = { weekday: 'long' };
+//     return new Intl.DateTimeFormat('en-US', options).format(date);
+//   }
+
+  // Function to get the hottest day from the forecast
+//   function getHottestDay(forecastDays) {
+//     return forecastDays.reduce((prev, current) =>
+//       (current.day.maxtemp_c > prev.day.maxtemp_c) ? current : prev
+//     );
+//   }
+
+  // Function to get the coldest day from the forecast
+//   function getColdestDay(forecastDays) {
+//     return forecastDays.reduce((prev, current) =>
+//       (current.day.mintemp_c < prev.day.mintemp_c) ? current : prev
+//     );
+//   }
+
+  // Function to display an error message on the page
+//   function displayErrorMessage(message) {
+//     document.getElementById('errorMessage').innerHTML = message;
+//   }
+
+  // Event listener for the search button click
+//   document.getElementById('searchButton').addEventListener('click', function () {
+//     const city = document.getElementById('searchBox').value;
+//     checkWeather(city);
+//   });
+
+  //(`currentWeather`, `forecastWeather`, `hottestDay`, `coldestDay`, `errorMessage`, `searchButton`, and `searchBox`) to display the weather data.
