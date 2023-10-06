@@ -1,47 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <title>trigger_AnnieCannons Application Project</title>
-    </head>
+</head>
 
-    <body>
-        <div class="container">
-            <div class="row search-bar-container">
-                <div class="col">
-                    <h1>Local Weather Report</h1>
-                    <!-- Rounded switch -->
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox"><span class="slider round"></span>
-                        </label>
-                    </div>
-                </div>
-                <div class="col">
-                    <input id="city-search-input" type="text" class="search-input" placeholder="enter location">
-                    <button type="submit" class="search-button">
-                        <img class="search-img" src="./images/search.png" id="search-img" alt="search-bar">
-                    </button>
-                    <div class="error">
-                        <p>Invalid city name</p>
-                    </div>
+<body>
+    <div class="container">
+        <div class="row search-bar-container">
+            <div class="col">
+                <h1>Local Weather Report</h1>
+                <!-- Rounded switch -->
+                <div class="toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="switch"><span class="slider round"></span>
+                    </label>
                 </div>
             </div>
-            <div class="row current-weather-container">
-                       <!-- <p id="coldest"></p>
-                    <p id="hottest"></p>
-                    <p id="moderate"></p> -->
+            <div class="col">
+                <input id="city-search-input" type="text" class="search-input" placeholder="enter location">
+                <button type="submit" class="search-button">
+                    <img class="search-img" src="./images/search.png" id="search-img" alt="search-bar">
+                </button>
+                <div class="error">
+                    <p>Invalid city name</p>
+                </div>
             </div>
-
-            <div id="days" class="row forecast-container">
-            </div>
-            <div id="hottest"></div>
         </div>
-        <script src="/script.js"></script>
-        <!-- <script>
+        <div class="row current-weather-container">
+        </div>
+
+        <div id="days" class="row forecast-container">
+        </div>
+        <div id="hottest"></div>
+    </div>
+    <script src="/script.js"></script>
+    <!-- <script>
             if(){
                 document.getElementById('hottest').style.color = "red";
                 let hotback = document.getElementsByClass('card').style.background = "linear-gradient(135deg, #980808, #ed3b71)";
@@ -52,7 +49,7 @@
 
             }
         </script> -->
-    </body>
+</body>
 
 </html>
 <!--The user can enter a city name in an input box and press a submit button to see the following information for the searched city:

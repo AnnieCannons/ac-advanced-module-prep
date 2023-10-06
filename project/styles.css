@@ -78,18 +78,18 @@
     display: inline-block;
     width: 60px;
     height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
+}
 
-  .switch input {
+/* Hide default HTML checkbox */
+
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
-  
-  /* Toggle slider */
-  .slider {
+}
+
+/* Toggle slider */
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -99,9 +99,9 @@
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  .slider:before {
+}
+
+.slider:before {
     position: absolute;
     content: "C°";
     height: 26px;
@@ -111,37 +111,37 @@
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
-  
-  input:checked + .slider {
+}
+
+input:checked+.slider {
     background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
+}
+
+input:focus+.slider {
     box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
+}
+
+input:checked+.slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
+}
+
+/* Rounded sliders */
+.slider.round {
     border-radius: 24px;
-  }
-  
-  .slider.round:before {
+}
+
+.slider.round:before {
     border-radius: 50%;
-  }
+}
 
-  /* current card */
+/* current card */
 
-  .label {
+.label {
     text-align: center;
     padding-bottom: 10%;
-  }
+}
 
 
 .current-weather-container {
@@ -180,34 +180,39 @@
     width: 100%;
 }
 
-h1.temp_f {
-    display: block;
-}
 
-h1.temp_c {
+.temp_c {
     display: none;
 }
 
-p.hi-low_f {
+.temp_f {
     display: block;
 }
 
-p.hi-low_c {
+.temp-selected-c{
+
+}
+
+.temp-selected-c .temp_c {
+    display: block;
+}
+
+.temp-selected-c .temp_f {
     display: none;
 }
 
 
 /* summary */
 
-.hotTemperature {
+.hot-temperature {
     background: linear-gradient(135deg, #980808, #ed3b71);
 }
 
-.moderateTemperature {
-    background: linear-gradient(135deg,#E8ee3b, #d87825);
+.moderate-temperature {
+    background: linear-gradient(135deg, #E8ee3b, #d87825);
 }
 
-.coldTempature {
+.cold-temperature {
     background: linear-gradient(135deg, #00feba, #5b548a);
 }
 
@@ -236,9 +241,7 @@ p.hi-low_c {
     font-size: 20px;
 }
 
-#forecast-temp_c
-
-.forecast_city {
+#forecast-temp_c .forecast_city {
     font-size: 18px;
 }
 
@@ -307,7 +310,7 @@ p.info {
     padding-top: 3%;
 }
 
-.forecast-weather-icon{
+.forecast-weather-icon {
     width: 20px;
 }
 
@@ -325,12 +328,13 @@ div.search {
 }
 
 .conditional-card {
-    width:50%;
+    width: 50%;
 }
 
 .forecast-container {
     display: flex;
-    flex-direction: row;;
+    flex-direction: row;
+    ;
 }
 
 img.max-min-weather-icon {
@@ -352,7 +356,8 @@ img.max-min-weather-icon {
 .inside-container {
     display: grid;
     grid-template-columns: 500px 500px 500px;
-    column-gap: 10px;;
+    column-gap: 10px;
+    ;
 }
 
 .main-section {
