@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Weather Report</title>
+    <link rel="stylesheet" href="/Users/taneshaberry/Documents/ac_weather_app/project/style.css">
+</head>
+<body>
+    <div class="weather-container">
+        <div class="search-box">
+            <h1>Local Weather Report</h1>
+            <input type="text" id="cityInput" class="inputResults" placeholder="Enter City Name"><br></br>
+            <button id="searchButton">Search</button>
+        </div>
+        <div id="weatherInfo" class="hidden">
+            <div id="weather-item">
+                <h2 id="cityName"></h2>
+                <p id="country"></p>
+                <p id="currentTemp"></p>
+                <p id="highTemp"></p>
+                <p id="lowTemp"></p>
+                <p id="precipitation"></p>
+            </div>
+            <div id="days">
+                <p id="day1" class="result-item"></p>
+                <p id="day2" class="result-item"></p>
+                <p id="day3" class="result-item"></p>
+            </div>
+            <br></br>
+            <div id="weatherCondition"></div>
+            <div id="displayHottestDay"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

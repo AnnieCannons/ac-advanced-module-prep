@@ -1,0 +1,133 @@
+body {
+    font-family: Intel, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;   
+}
+
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+ .search-box {
+    margin-top: 50px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#cityInput {
+    flex: 1;
+    padding: 10px;
+    background-color: #d9d9d9;
+    border: none;
+    padding: 5px 50px;
+}
+
+button {
+    padding: 5px 50px;
+    background-color: #d9d9d9;
+    color: black;
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+}
+
+/* .hidden {
+    display: none;
+} */
+
+
+#cityInput {
+    color: black;
+    padding: 20px;
+    padding-left: 15px;
+    padding-right: 100px;
+    border: none;
+    background-color: #d9d9d9;
+    font-size: 1em;
+    width: 30%;
+    align-items: center;
+}
+
+button {
+    padding: 5px 70px;
+    background-color: #d9d9d9;
+    color: black;
+    border: none;
+    cursor: pointer;
+    font-size: 1.20em;
+}
+
+
+.weatherInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    height: 50vh; 
+     width: 50vw;
+}
+
+#weather-item {
+    display: none; /* Initially hide the weather info */
+    border: 1px solid black; /* Add border to the container */
+    border-radius: .5px;
+    padding: 20px; /* Add padding inside the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    display: flex; /* Use flexbox layout for the container */
+    flex-direction: column; /* Arrange child elements vertically */
+} 
+
+#days {
+    display: none; /* Initially hide the weather info */
+    border: 1px solid black; /* Add border to the container */
+    border-radius: .5px;
+    padding: 20px; /* Add padding inside the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    display: flex; /* Use flexbox layout for the container */
+    flex-direction: column; /* Arrange child elements vertically */
+} 
+
+#weatherCondition {
+    display: none; /* Initially hide the weather info */
+    border: 1px solid black; /* Add border to the container */
+    border-radius: .5px;
+    padding: 20px; /* Add padding inside the container */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    display: flex; /* Use flexbox layout for the container */
+    flex-direction: column; /* Arrange child elements vertically */
+} 
+
+/* #displayHottestDay {
+    display: none; 
+    border: 1px solid black;
+    border-radius: .5px;
+    padding: 20px; 
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
+}  */
+
+/* .inputResults {
+    display: none; 
+    border: 1px solid black; 
+    border-radius: .5px;
+    padding: 20px; 
+    box-sizing: border-box;
+    display: flex; 
+    flex-direction: column; 
+}  */
+
+
+/* For the CSS, I tried to get the boxes to appear after the click on the search and couldn't I tried to use the pseudo ::before ::after and it would only erase the whole display. I know i need help with my javascript and I think getting in the class will allow me to utilize what i do know and help develop the skills i don't know to help me understand better.  */
